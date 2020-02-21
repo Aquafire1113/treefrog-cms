@@ -45,7 +45,8 @@ function displayModal(){
         if(finalText.trim().length !== 0){
             $(".modal").css("display", "none");
             $(".mainNavModal").css("display", "flex");
-            $(".navName").html(finalText);
+            $(".navName").html(finalText.toLowerCase());
+            alert("Your page will be named " + finalText.toLowerCase());
         }
     });
 

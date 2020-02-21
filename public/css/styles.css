@@ -29,20 +29,73 @@ p {
   background-color: #393c40;
   color: #f2f2f2; }
 
+.btn-light {
+  background-color: #F3DCC9;
+  color: #393c40; }
+
 .modal {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(242, 242, 242, 0.5);
   display: none; }
+  .modal .clickBox {
+    background-color: rgba(242, 242, 242, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    cursor: pointer; }
   .modal .alert-box {
-    width: 600px;
-    height: 350px;
+    width: 700px;
+    height: 500px;
     background-color: #393c40;
     margin: auto;
-    border-radius: 10px; }
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 99; }
+    .modal .alert-box h1, .modal .alert-box p {
+      color: #f2f2f2;
+      margin: 10px; }
+    .modal .alert-box p {
+      width: 500px;
+      margin: 10px; }
+    .modal .alert-box input {
+      width: 300px;
+      border-radius: 10px;
+      height: 35px;
+      border-style: none;
+      margin: 10px;
+      text-align: center; }
+    .modal .alert-box div {
+      margin-top: 50px; }
+
+.mainNavModal {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: white;
+  display: none;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 50px;
+  box-sizing: border-box;
+  flex-direction: column; }
+  .mainNavModal #editor {
+    width: 85%; }
+  .mainNavModal .ql-toolbar {
+    width: 85%; }
+  .mainNavModal p {
+    width: 80%; }
+  .mainNavModal span {
+    margin-top: 25px;
+    margin-bottom: 25px; }
 
 .nav {
   position: fixed;

@@ -12,20 +12,94 @@
   color: $white-color;
 }
 
+.btn-light{
+  background-color:$light-color;
+  color:$dark-color;
+}
+
 .modal {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba($white-color, 0.5);
   display: none;
 
+  .clickBox{
+    background-color: rgba($white-color, 0.5);
+    height:100%;
+    width:100%;
+    position: absolute;
+    cursor:pointer;
+  }
+
   .alert-box {
-    width: 600px;
-    height: 350px;
+    width: 700px;
+    height: 500px;
     background-color: $dark-color;
     margin: auto;
     border-radius: 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    z-index:99;
+
+    h1, p{
+      color:$white-color;
+      margin:10px;
+    }
+
+    p{
+      width:500px;
+      margin:10px;
+    }
+
+    input{
+      width:300px;
+      border-radius:10px;
+      height:35px;
+      border-style: none;
+      margin:10px;
+      text-align:center;
+    }
+
+   div {
+      margin-top:50px;
+    }
+
+  }
+}
+
+.mainNavModal{
+  position: fixed;
+  top: 80px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color:white;
+  display:none;
+  align-items:flex-start;
+  justify-content: space-around;
+  padding:50px;
+  box-sizing:border-box;
+  flex-direction:column;
+
+  #editor{
+    width:85%;
+  }
+
+  .ql-toolbar{
+    width:85%
+  }
+
+  p{
+    width:80%;
+  }
+
+  span{
+    margin-top:25px;
+    margin-bottom:25px;
   }
 }

@@ -41,12 +41,24 @@ function displayModal(){
         finalText = $( this ).val();
     }).keyup();
 
+    var navArray = ["products", "about", "contact"];
+
     $(".createLink").click(function(){
         if(finalText.trim().length !== 0){
-            $(".modal").css("display", "none");
-            $(".mainNavModal").css("display", "flex");
-            $(".navName").html(finalText.toLowerCase());
-            alert("Your page will be named " + finalText.toLowerCase());
+            var checker = true;
+            for(var i = 0; i < navArray.length; i++){
+                if(navArray[i] === finalText){
+                    checker = false
+                    alert("There is already a page named that.");
+                }
+            }
+            if(checker){
+                $(".modal").css("display", "none");
+                $(".mainNavModal").css("display", "flex");
+                $(".navName").html(finalText.toLowerCase());
+                alert("Your page will be named " + finalText.toLowerCase());
+            }
+
         }
     });
 

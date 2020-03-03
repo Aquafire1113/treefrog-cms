@@ -16,7 +16,11 @@ var SERVICE = (function(){
 
         </div>
 
-        <span class='btn btn-dark'>Save Page Info</span>
+        <span class='btn btn-dark savePage'>Save Page Info</span>
+
+        <div class='displayPage'>
+        
+        </div>
         
         </div> 
         <div class="modal">

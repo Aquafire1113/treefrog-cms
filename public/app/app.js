@@ -57,6 +57,8 @@ function displayModal(){
                 $(".mainNavModal").css("display", "flex");
                 $(".navName").html(finalText.toLowerCase());
                 alert("Your page will be named " + finalText.toLowerCase());
+                navArray.push(finalText);
+                console.log(navArray);
             }
 
         }
@@ -90,6 +92,12 @@ function displayModal(){
         },
         theme: 'snow'
       });
+
+    $('.savePage').click(function(e){
+        e.preventDefault();
+        var justHtml = quill.root.innerHTML;
+        $('.displayPage').html(justHtml);
+    }) 
 }
 
 

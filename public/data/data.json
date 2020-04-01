@@ -1,0 +1,14 @@
+{
+    "Pages":[
+        {
+        "navName": "Home",
+        "subNavs": [
+            {
+                "subNavName":"Pages",
+                "subNavContent":"<h1>Hello Subnav</h1>"
+            }
+        ],
+        "content": "<h1>Hello</h1>"
+        }
+    ]
+}

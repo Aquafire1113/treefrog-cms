@@ -1,3 +1,15 @@
+function addMainNav(){
+    console.log('add', finalText)
+
+    let fakePageData ={
+        navName:navName,
+        content:'<h1>Hello</h1>',
+        subNavs:[]
+    }
+
+    SERVICE.returnData(fakePageData);
+}
+
 function initButtons(){
     $("#home").click(function(e){
         $("#addNav div").removeClass('active');
@@ -41,27 +53,31 @@ function displayModal(){
         finalText = $( this ).val();
     }).keyup();
 
-    var navArray = ["products", "about", "contact"];
+    // var navArray = ["products", "about", "contact"];
 
-    $(".createLink").click(function(){
-        if(finalText.trim().length !== 0){
-            var checker = true;
-            for(var i = 0; i < navArray.length; i++){
-                if(navArray[i] === finalText){
-                    checker = false
-                    alert("There is already a page named that.");
-                }
-            }
-            if(checker){
-                $(".modal").css("display", "none");
-                $(".mainNavModal").css("display", "flex");
-                $(".navName").html(finalText.toLowerCase());
-                alert("Your page will be named " + finalText.toLowerCase());
-                navArray.push(finalText);
-                console.log(navArray);
-            }
+    $(".createLink").click(function(e){
 
-        }
+        // var newNavName = finalText.toLowerCase().trim();
+
+        SERVICE.checkMainNavName(finalText, addMainNav);
+        // if(finalText.trim().length !== 0){
+        //     var checker = true;
+        //     for(var i = 0; i < navArray.length; i++){
+        //         if(navArray[i] === finalText){
+        //             checker = false
+        //             alert("There is already a page named that.");
+        //         }
+        //     }
+        //     if(checker){
+        //         $(".modal").css("display", "none");
+        //         $(".mainNavModal").css("display", "flex");
+        //         $(".navName").html(finalText.toLowerCase());
+        //         alert("Your page will be named " + finalText.toLowerCase());
+        //         navArray.push(finalText);
+        //         console.log(navArray);
+        //     }
+
+        // }
     });
 
     var toolbarOptions = [
@@ -98,11 +114,10 @@ function displayModal(){
         var justHtml = quill.root.innerHTML;
         $('.displayPage').html(justHtml);
     }) 
-}
-
-
+    };
 
 $(document).ready(function(){
+    SERVICE.initFirebase();
     initButtons();
     addGetStartedListener();
 });

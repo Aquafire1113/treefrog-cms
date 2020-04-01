@@ -1,5 +1,83 @@
 var SERVICE = (function(){
 
+    document.addEventListener("DOMContentLoaded", function() {   
+    //  firebase.auth().onAuthStateChanged(user => {});  firebase.database().ref('/contacts').on('value', snapshot => {});  firebase.firestore().collection('contacts'); firebase.messaging().requestPermission().then(() => { }); firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+
+    try {
+         let app = firebase.app();
+          let features = ["auth", "database", "messaging", "storage"].filter( feature => typeof app[feature] === "function" 
+          );  
+    } catch (e) { console.error(e); 
+        
+        } 
+    });
+
+    var _db;
+
+    var _initFirebase = function(){
+        firebase
+        .auth()
+        .signInAnonymously()
+        .then(function(result){
+            console.log("Connected"); 
+            _db = firebase.firestore(); 
+            // _addContact();
+        });
+    }
+
+    // var _addContact = function(){
+    //     let data = {fName: "New", lName: "Person"};
+
+    //     _db.collection('pages')
+    //     .add(data)
+    //     .then(function(docRef){ 
+    //         // console.log('Document written with ID: ', docRef.id);
+    //         _returnData();
+    //     }).catch(function(error){ 
+    //         console.error('Error adding document: ', error); 
+    //     });
+    // }
+
+    var _returnData = function(fakeData){
+        _db.collection('pages')
+        .get()
+        .then(function(querySnapshot){ 
+            querySnapshot.forEach(function(doc){  
+                }); 
+            });
+    };
+
+    var _checkMainNavName = function(newNavName, callback){
+
+        var pages = _db.collection('pages');
+
+        pages
+        .get()
+        .then(function(querySnapshot){
+            console.log("got something", querySnapshot.empty)
+            if(querySnapshot.empty){
+                callback(newNavName);
+            }else{
+                console.log(
+                _db.collection('pages').where("navName", "==", newNavName))
+            }
+        })
+        .catch(function(error){
+            console.log("Error: ", error.message);
+        })
+
+    //     _db.collection('pages').where("navName", "==", mainNavName)
+    //     .get()
+    //     .then(function(querySnapshot){
+    //         querySnapshot.forEach(function(doc){
+    //             consotle.log("Got something", doc.id, '=>', doc.data())
+    //         })
+    //     .catch(function(error){
+    //         console.log('Error getting documents', error);
+    //     })
+    //     });
+    }
+
     var _getGetStartedContent = function(){
         let contentString = `
         <h1>Treefrog CMS</h1>
@@ -94,11 +172,14 @@ var SERVICE = (function(){
     }
 
     return {
+        initFirebase: _initFirebase,
         getGetStartedContent: _getGetStartedContent,
         getCreateNavButton: _getCreateNavButton,
         getHomeContent: _getHomeContent,
         getHomeStartButton:_getHomeStartButton,
-        modalContent: _modalContent
+        modalContent: _modalContent,
+        checkMainNavName: _checkMainNavName,
+        returnData: _returnData
     }
 
 })();

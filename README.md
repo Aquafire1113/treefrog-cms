@@ -1,3 +1,5 @@
+<a href="">Test the Site</a>
+
 # Treefrog CMS
 
 This is a CMS created with Firebase and jQuery. We are just showing how to create a very simple CMS that will update a site's navigation and update the page content.
@@ -45,5 +47,3 @@ You need to plan your application you are creating and if you are going to inclu
 11. Deploy to Firebase:
 
 <pre><code>firebase deploy --except functions</code></pre>
-
-<a></a>
